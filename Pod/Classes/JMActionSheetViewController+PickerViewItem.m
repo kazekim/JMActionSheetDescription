@@ -59,7 +59,7 @@ const char * const JMActionSheetPickerBlockActionKey = "JMActionSheetPickerBlock
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     id obj = [[self jm_pickerElements] objectAtIndex:row];
-    [self.delegate actionSheetDidSelectPickerView:pickerView element:obj block:[self jm_pickerActionBlock]];
+    [self.delegate actionSheetDidSelectPickerView:pickerView element:obj block:[self jm_pickerActionBlock] dismissEnable:NO];
 }
 
 #pragma mark - DatePicker Delegate
@@ -67,7 +67,7 @@ const char * const JMActionSheetPickerBlockActionKey = "JMActionSheetPickerBlock
 - (void)datePickerValueDidChange:(UIDatePicker *)datePicker
 {
     id obj = datePicker.date;
-    [self.delegate actionSheetDidSelectPickerView:(UIPickerView *)datePicker element:obj block:[self jm_pickerActionBlock]];
+    [self.delegate actionSheetDidSelectPickerView:(UIPickerView *)datePicker element:obj block:[self jm_pickerActionBlock] dismissEnable:NO];
 }
 
 @end

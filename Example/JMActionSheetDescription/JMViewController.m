@@ -147,8 +147,16 @@
     
     JMActionSheetItem *cancelItem = [[JMActionSheetItem alloc] init];
     cancelItem.title = @"Cancel";
+    
+    JMActionSheetItem *selectItem = [[JMActionSheetItem alloc] init];
+    selectItem.title = @"Select";
+    selectItem.textColor = [UIColor blackColor];
+    selectItem.action = ^(void){
+        NSLog(@"button pressed");
+    };
+    
     desc.cancelItem = cancelItem;
-    desc.items = @[pickerItem];
+    desc.items = @[pickerItem,selectItem];
     
     [JMActionSheet showActionSheetDescription:desc inViewController:self fromView:sender permittedArrowDirections:UIPopoverArrowDirectionAny];
 }

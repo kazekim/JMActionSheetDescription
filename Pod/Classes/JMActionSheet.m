@@ -186,11 +186,18 @@ static JMActionSheetOSStragey actionSheetStrategy_;
 
 - (void)actionSheetDidSelectPickerView:(UIPickerView *)pickerView element:(id)element block:(JMActionSheetSelectedItemBlock)block
 {
+    [self actionSheetDidSelectPickerView:pickerView element:element block:block dismissEnable:YES];
+}
+
+- (void)actionSheetDidSelectPickerView:(UIPickerView *)pickerView element:(id)element block:(JMActionSheetSelectedItemBlock)block dismissEnable:(BOOL)dismissEnable
+{
     if (block) {
         block(element);
     }
     
-    [self dismissActionSheet];
+    if(dismissEnable){
+        [self dismissActionSheet];
+    }
 }
 
 - (void)actionSheetDidSelectCollectionView:(UICollectionView *)collectionView element:(id)element block:(JMActionSheetSelectedItemBlock)block
